@@ -1,0 +1,67 @@
+features: shape + wrist motion + finger velocity (87-d)
+tune subjects ['1CM1_4', '1CM42_11', '1CM42_12'], test subjects ['1CM1_1', '1CM1_2', '1CM1_3']  (20.7 min of test video)
+  1CM1_1 demo lengths: P1F=22 P2F=22 C1F=10 C2F=12 TUP=16 TDN=14 TLT=22 TRT=9 OP2=15 2C1=10 2C2=16 ZIN=16 ZOT=18
+  1CM1_2 demo lengths: P1F=15 P2F=5 C1F=16 C2F=12 TUP=17 TDN=15 TLT=17 TRT=16 OP2=20 2C1=18 2C2=16 ZIN=20 ZOT=20 GRB=11
+  1CM1_3 demo lengths: P1F=22 P2F=17 C1F=17 C2F=13 TUP=18 TDN=14 TLT=15 TRT=22 OP2=32 2C1=25 2C2=22 ZIN=20 ZOT=17
+
+(a) oracle 14-way classification on test subjects: 95/221 = 0.43
+    per class (correct/total, most common confusion):
+      P1F  10/55  -> C1F x19
+      P2F  26/54  -> C2F x11
+      C1F   7/10  -> P2F x2
+      C2F   1/ 9  -> 2C2 x5
+      TUP   6/ 9  -> P2F x1
+      TDN   3/ 9  -> P2F x3
+      TLT   6/ 9  -> P1F x2
+      TRT   5/ 9  -> P2F x1
+      OP2   6/ 9  -> ZIN x3
+      2C1   4/ 9  -> P2F x2
+      2C2   5/ 9  -> P2F x2
+      ZIN   8/ 9  -> C2F x1
+      ZOT   5/ 9  -> ZIN x2
+      GRB   3/12  -> P2F x5
+
+(b) tau sweep on tuning subjects:
+    tau=0.30  TP= 27 FP=  49 FN=188  P=0.36 R=0.13 F1=0.19
+    tau=0.35  TP= 34 FP=  51 FN=181  P=0.40 R=0.16 F1=0.23
+    tau=0.40  TP= 39 FP=  71 FN=176  P=0.35 R=0.18 F1=0.24
+    tau=0.45  TP= 54 FP= 114 FN=161  P=0.32 R=0.25 F1=0.28
+    tau=0.50  TP= 66 FP= 145 FN=149  P=0.31 R=0.31 F1=0.31
+    tau=0.55  TP= 72 FP= 190 FN=143  P=0.27 R=0.33 F1=0.30
+    tau=0.60  TP= 79 FP= 252 FN=136  P=0.24 R=0.37 F1=0.29
+    tau=0.65  TP= 85 FP= 304 FN=130  P=0.22 R=0.40 F1=0.28
+    tau=0.70  TP= 92 FP= 366 FN=123  P=0.20 R=0.43 F1=0.27
+    tau=0.75  TP= 98 FP= 400 FN=117  P=0.20 R=0.46 F1=0.27
+    tau=0.80  TP= 96 FP= 418 FN=119  P=0.19 R=0.45 F1=0.26
+
+    test subjects at tau=0.50: TP=98 FP=346 FN=123  P=0.22 R=0.44 F1=0.29  FP/min=16.75
+    per class:  TP  FP  FN    P    R
+      P1F      24  45  31  0.35 0.44
+      P2F      17  13  37  0.57 0.31
+      C1F       5  47   5  0.10 0.50
+      C2F       3  63   6  0.05 0.33
+      TUP       7   6   2  0.54 0.78
+      TDN       3   2   6  0.60 0.33
+      TLT       8   0   1  1.00 0.89
+      TRT       4   0   5  1.00 0.44
+      OP2       6   2   3  0.75 0.67
+      2C1       4  25   5  0.14 0.44
+      2C2       4  49   5  0.08 0.44
+      ZIN       7  56   2  0.11 0.78
+      ZOT       6  38   3  0.14 0.67
+      GRB       0   0  12  0.00 0.00
+    false positives by (detected class <- what was really happening):
+      C2F  <- P2F   x37
+      2C2  <- P2F   x31
+      P1F  <- P1F   x28
+      ZOT  <- P1F   x27
+      ZIN  <- P1F   x27
+      C1F  <- P1F   x26
+      2C1  <- P1F   x23
+      ZIN  <- P2F   x20
+      P1F  <- P2F   x17
+      C2F  <- P1F   x15
+      2C2  <- P1F   x12
+      C1F  <- P2F   x10
+
+saved /Users/ziyueliu/dev/projects/cs230/dtw_baseline/figures/confusion_14class_shapevel.png

@@ -1,0 +1,72 @@
+standardizer on 37 train videos (2s)
+DTW runs: 5-gesture 10s, 14-gesture 4s (1202367 frames x 14 templates; 0.3 us per frame-template incl. I/O)
+
+=== A. register 5, score 5  (tau=0.300, chosen on train)
+  P=0.737 R=0.565 F1=0.639  [95% CI 0.574-0.698]  FP/min=0.44  (TP=437 FP=156 FN=337, 355 min evaluated)
+  per-subject F1 0.635 +- 0.106 (min 0.38, max 0.81)
+  oracle classification acc 0.798;  latency after gesture end: median -0.20s, IQR -0.33--0.07s
+  class   TP   FP   FN     P     R    F1   oracle
+  TUP    113   76   43  0.60  0.72  0.66   0.92
+  TDN     50   10  106  0.83  0.32  0.46   0.47
+  TLT     91    2   65  0.98  0.58  0.73   0.92
+  TRT     55   18   99  0.75  0.36  0.48   0.71
+  OP2    128   50   24  0.72  0.84  0.78   0.97
+
+=== B. register 14, score 14  (tau=0.300, chosen on train)
+  P=0.367 R=0.458 F1=0.408  [95% CI 0.352-0.459]  FP/min=9.20  (TP=1892 FP=3261 FN=2239, 355 min evaluated)
+  per-subject F1 0.407 +- 0.094 (min 0.23, max 0.56)
+  oracle classification acc 0.411;  latency after gesture end: median -0.40s, IQR -2.42--0.13s
+  class   TP   FP   FN     P     R    F1   oracle
+  P1F    315  205  681  0.61  0.32  0.42   0.23
+  P2F    346  323  632  0.52  0.35  0.42   0.24
+  C1F     81  558   81  0.13  0.50  0.20   0.54
+  C2F     84  552   60  0.13  0.58  0.22   0.50
+  TUP    109   37   47  0.75  0.70  0.72   0.68
+  TDN     50   10  106  0.83  0.32  0.46   0.28
+  TLT     91    2   65  0.98  0.58  0.73   0.58
+  TRT     55   14   99  0.80  0.36  0.49   0.37
+  OP2    128   35   24  0.79  0.84  0.81   0.80
+  2C1     89  377   67  0.19  0.57  0.29   0.41
+  2C2    109  398   56  0.21  0.66  0.32   0.47
+  ZIN    139  206   41  0.40  0.77  0.53   0.76
+  ZOT    120  181   42  0.40  0.74  0.52   0.70
+  GRB    176  363  238  0.33  0.43  0.37   0.63
+
+=== C. register 14, score the same 5 (tau re-tuned on train)  (tau=0.350, chosen on train)
+  P=0.695 R=0.661 F1=0.678  [95% CI 0.600-0.748]  FP/min=0.63  (TP=512 FP=225 FN=262, 355 min evaluated)
+  per-subject F1 0.685 +- 0.127 (min 0.40, max 0.85)
+  oracle classification acc 0.540;  latency after gesture end: median -0.20s, IQR -0.40--0.07s
+  class   TP   FP   FN     P     R    F1   oracle
+  TUP    121   92   35  0.57  0.78  0.66   0.68
+  TDN     66   43   90  0.61  0.42  0.50   0.28
+  TLT    120    1   36  0.99  0.77  0.87   0.58
+  TRT     68   38   86  0.64  0.44  0.52   0.37
+  OP2    137   51   15  0.73  0.90  0.81   0.80
+
+=== B by group
+  dynamic          TP= 868 FP= 848 FN= 662  P=0.506 R=0.567 F1=0.535
+  pointing-family  TP=1024 FP=2413 FN=1577  P=0.298 R=0.394 F1=0.339
+
+=== B false positives (3261) by what was really happening:
+  during P2F :  1257 (39%)
+  during P1F :  1054 (32%)
+  during NOG :   264 (8%)
+  during 2C2 :   136 (4%)
+  during 2C1 :   102 (3%)
+  during OP2 :    86 (3%)
+  during C2F :    73 (2%)
+  during C1F :    70 (2%)
+  during ZOT :    70 (2%)
+  during ZIN :    54 (2%)
+  during GRB :    34 (1%)
+  during TUP :    31 (1%)
+  during TLT :    14 (0%)
+  during TDN :     9 (0%)
+  during TRT :     7 (0%)
+  top (detected <- truth): C1F<-P1F x416, C2F<-P2F x401, 2C2<-P2F x310, 2C1<-P1F x285, P2F<-P2F x165, GRB<-NOG x120, ZIN<-P2F x119, P1F<-P1F x112
+
+=== B by recording hand
+  R: 48 videos  P=0.376 R=0.436 F1=0.404
+  L: 4 videos  P=0.314 R=0.739 F1=0.440
+
+saved figures + /Users/ziyueliu/dev/projects/cs230/dtw_baseline/figures/full_results.json  (total 24s)

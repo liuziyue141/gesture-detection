@@ -1,0 +1,61 @@
+standardizer fitted on 8 videos (0.3s)
+
+===== calibrate=False  (0.3s incl. JSON loading)
+  demos for 1CM1_4: TUP=19fr, TDN=8fr, TLT=17fr, TRT=16fr, OP2=23fr
+  demos for 1CM1_1: TUP=16fr, TDN=14fr, TLT=22fr, TRT=9fr, OP2=15fr
+  tau sweep on train subject 1CM1_4 (videos 2-4):
+    tau=1.00  TP= 0 FP=  0 FN=15  P=0.00 R=0.00 F1=0.00  FP/min=0.00
+    tau=1.25  TP= 2 FP=  0 FN=13  P=1.00 R=0.13 F1=0.24  FP/min=0.00
+    tau=1.50  TP= 3 FP=  0 FN=12  P=1.00 R=0.20 F1=0.33  FP/min=0.00
+    tau=1.75  TP= 7 FP=  1 FN= 8  P=0.88 R=0.47 F1=0.61  FP/min=0.16
+    tau=2.00  TP= 8 FP=  1 FN= 7  P=0.89 R=0.53 F1=0.67  FP/min=0.16
+    tau=2.25  TP=10 FP= 16 FN= 5  P=0.38 R=0.67 F1=0.49  FP/min=2.51
+    tau=2.50  TP=10 FP= 97 FN= 5  P=0.09 R=0.67 F1=0.16  FP/min=15.24
+    tau=2.75  TP=11 FP=157 FN= 4  P=0.07 R=0.73 F1=0.12  FP/min=24.67
+    tau=3.00  TP=12 FP=178 FN= 3  P=0.06 R=0.80 F1=0.12  FP/min=27.97
+    tau=3.25  TP=12 FP=184 FN= 3  P=0.06 R=0.80 F1=0.11  FP/min=28.91
+    tau=3.50  TP=10 FP=174 FN= 5  P=0.05 R=0.67 F1=0.10  FP/min=27.34
+    tau=3.75  TP=11 FP=176 FN= 4  P=0.06 R=0.73 F1=0.11  FP/min=27.65
+    tau=4.00  TP=11 FP=166 FN= 4  P=0.06 R=0.73 F1=0.11  FP/min=26.08
+  -> test subject 1CM1_1 at tau=2.00: TP=7 FP=5 FN=8  P=0.58 R=0.47 F1=0.52  FP/min=0.78
+
+===== calibrate=True  (0.4s incl. JSON loading)
+  demos for 1CM1_4: TUP=19fr, TDN=8fr, TLT=17fr, TRT=16fr, OP2=23fr
+  demos for 1CM1_1: TUP=16fr, TDN=14fr, TLT=22fr, TRT=9fr, OP2=15fr
+  tau sweep on train subject 1CM1_4 (videos 2-4):
+    tau=0.30  TP= 2 FP=  0 FN=13  P=1.00 R=0.13 F1=0.24  FP/min=0.00
+    tau=0.35  TP= 8 FP=  0 FN= 7  P=1.00 R=0.53 F1=0.70  FP/min=0.00
+    tau=0.40  TP= 9 FP=  0 FN= 6  P=1.00 R=0.60 F1=0.75  FP/min=0.00
+    tau=0.45  TP=10 FP= 20 FN= 5  P=0.33 R=0.67 F1=0.44  FP/min=3.14
+    tau=0.50  TP=11 FP= 96 FN= 4  P=0.10 R=0.73 F1=0.18  FP/min=15.08
+    tau=0.55  TP=12 FP=176 FN= 3  P=0.06 R=0.80 F1=0.12  FP/min=27.65
+    tau=0.60  TP=12 FP=206 FN= 3  P=0.06 R=0.80 F1=0.10  FP/min=32.37
+    tau=0.65  TP=10 FP=215 FN= 5  P=0.04 R=0.67 F1=0.08  FP/min=33.78
+    tau=0.70  TP= 9 FP=214 FN= 6  P=0.04 R=0.60 F1=0.08  FP/min=33.62
+    tau=0.75  TP= 9 FP=213 FN= 6  P=0.04 R=0.60 F1=0.08  FP/min=33.47
+    tau=0.80  TP= 9 FP=206 FN= 6  P=0.04 R=0.60 F1=0.08  FP/min=32.37
+    tau=0.85  TP= 9 FP=198 FN= 6  P=0.04 R=0.60 F1=0.08  FP/min=31.11
+    tau=0.90  TP= 9 FP=188 FN= 6  P=0.05 R=0.60 F1=0.08  FP/min=29.54
+    tau=0.95  TP= 9 FP=183 FN= 6  P=0.05 R=0.60 F1=0.09  FP/min=28.75
+    tau=1.00  TP= 9 FP=175 FN= 6  P=0.05 R=0.60 F1=0.09  FP/min=27.50
+  -> test subject 1CM1_1 at tau=0.40: TP=8 FP=6 FN=7  P=0.57 R=0.53 F1=0.55  FP/min=0.93
+
+per-instance (test subject): own-template min score near the instance, and its rank among 5
+  1CM1_1_R_#218    TDN  d=0.41  rank=1
+  1CM1_1_R_#218    OP2  d=0.17  rank=1
+  1CM1_1_R_#218    TRT  d=0.37  rank=1
+  1CM1_1_R_#218    TUP  d=0.26  rank=1
+  1CM1_1_R_#218    TLT  d=0.45  rank=1
+  1CM1_1_R_#219    TUP  d=0.16  rank=1
+  1CM1_1_R_#219    TRT  d=0.36  rank=1
+  1CM1_1_R_#219    TDN  d=0.49  rank=3
+  1CM1_1_R_#219    TLT  d=0.35  rank=1
+  1CM1_1_R_#219    OP2  d=0.18  rank=1
+  1CM1_1_R_#220    OP2  d=0.24  rank=1
+  1CM1_1_R_#220    TUP  d=0.16  rank=1
+  1CM1_1_R_#220    TRT  d=0.38  rank=1
+  1CM1_1_R_#220    TLT  d=0.40  rank=1
+  1CM1_1_R_#220    TDN  d=0.55  rank=2
+  rank-1 rate: 0.87
+
+saved /Users/ziyueliu/dev/projects/cs230/dtw_baseline/figures/score_curves.png
